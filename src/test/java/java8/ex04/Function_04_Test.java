@@ -28,9 +28,8 @@ public class Function_04_Test {
     // PART 1 - ADULT
 
     // tag::adult[]
-    // TODO Compléter la fonction
-    // TODO AGE >=18
-    Predicate<Person> adult = null;
+    // AGE >=18
+    Predicate<Person> adult = p -> p.getAge()>=18;
     // end::adult[]
 
     @Test
@@ -38,8 +37,8 @@ public class Function_04_Test {
 
         List<Person> personList = Data.buildPersonList();
 
-        // TODO invoquer la méthode filter pour que le test soit passant
-        List<Person> result = null;
+        // on invoque la méthode filter pour que le test soit passant
+        List<Person> result =  filter(personList,adult);
 
         assert result.size() == 4;
 
@@ -48,13 +47,11 @@ public class Function_04_Test {
     // PART 2 - ADULT AND LASTNAME=France AND FIRSTNAME=Armor
 
     // tag::predicateand[]
-    // TODO compléter la fonction
-    // TODO le prédicat vérifie que le nom est "France"
+    // le prédicat vérifie que le nom est "France"
     Predicate<Person> lastnameIsFrance = p -> p.getLastname().equals("France");
 
 
-    // TODO compléter la fonction
-    // TODO le prédicat vérifie que le prénom est "Armor"
+    // le prédicat vérifie que le prénom est "Armor"
     Predicate<Person> firstnameIsArmor = p -> p.getFirstname().equals("Armor");
     // end::predicateand[]
 
@@ -63,9 +60,9 @@ public class Function_04_Test {
 
         List<Person> personList = Data.buildPersonList();
 
-        // TODO invoquer la méthode filter pour que le test soit passant
-        // TODO chaîner les prédicats adult, lastnameIsFrance et firstnameIsArmor avec la méthode and
-        List<Person> result = null;
+        // on invoque la méthode filter pour que le test soit passant
+        // en chaînant les prédicats adult, lastnameIsFrance et firstnameIsArmor avec la méthode and
+        List<Person> result = filter(personList, adult.and(lastnameIsFrance).and(firstnameIsArmor));
 
         assert result.size() == 1;
         assert result.get(0).getFirstname().equals("Armor");
