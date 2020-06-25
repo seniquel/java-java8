@@ -23,8 +23,11 @@ public class Stream_02_Test {
 
         List<Order> orders = new Data().getOrders();
 
-        // Trouver la liste des clients ayant déjà passés une commande
-        List<Customer> result = null;
+        // Trouve la liste des clients ayant déjà passés une commande
+        List<Customer> result = orders.stream()
+        		.map(Order::getCustomer)
+        		.distinct()
+        		.collect(Collectors.toList());
 
         assertThat(result, hasSize(2));
     }
