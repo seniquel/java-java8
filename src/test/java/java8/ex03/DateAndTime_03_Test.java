@@ -16,13 +16,13 @@ public class DateAndTime_03_Test {
     @Test
     public void test_localTime_of() {
 
-        // TODO créer un objet LocalTime à l'heure 15h24m02s
-        LocalTime result = null;
+        // on crée un objet LocalTime à l'heure 15h24m02s
+        LocalTime result = LocalTime.of(15, 24, 2);
 
-        // TODO valoriser les différentes variables afin de rendre le test passant
-        int hour = 0;
-        int minutes = 0;
-        int second = 0;
+        // on valorise les différentes variables afin de rendre le test passant
+        int hour = 15;
+        int minutes = 24;
+        int second = 2;
 
         assertThat(hour, is(15));
         assertThat(minutes, is(24));
@@ -32,13 +32,13 @@ public class DateAndTime_03_Test {
     @Test
     public void test_localTime_parse() {
 
-        // TODO créer un objet LocalTime à l'heure 09h30m00s à l'aide de la méthode parse
-        LocalTime result = null;
+        // on crée un objet LocalTime à l'heure 09h30m00s à l'aide de la méthode parse
+        LocalTime result = LocalTime.parse("09:30:00");
 
 
-        // TODO valoriser les différentes variables afin de rendre le test passant
-        int hour = 0;
-        int minutes = 0;
+        // on valorise les différentes variables afin de rendre le test passant
+        int hour = 9;
+        int minutes = 30;
         int second = 0;
 
         assertThat(hour, is(9));
@@ -49,12 +49,13 @@ public class DateAndTime_03_Test {
     @Test
     public void test_localTime_format() {
 
-        // TODO créer un objet localTime à l'heure 12h00m00s
-        // TODO utiliser la méthode of
-        LocalTime localTime = null;
+        // on crée un objet localTime à l'heure 12h00m00s
+        // en utilisant la méthode of
+        LocalTime localTime = LocalTime.of(12, 0);
 
-        // TODO Formatter l'heure pour que le test soit passant
-        String result = null;
+        // On formatte l'heure pour que le test soit passant
+        String result = localTime.format(DateTimeFormatter.ofPattern("hh:mm"));
+        System.out.println(result);
 
         assertThat(result, is("12:00"));
     }
